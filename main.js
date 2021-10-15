@@ -1,12 +1,24 @@
-const rimraf = require('rimraf');
-// const yargs = require('yargs')
-//         .command('[directory]', 'Directory to delete recursively')
-//         .demandCommand(1)
-//         .argv
+const rm = require('./remove');
+const rd = require('./read');
 
-// console.log(process.argv)
-rimraf(process.argv[2], { 
-    glob: false
-}, function(data) {
-    console.log(data)
-})
+let arguments = process.argv.slice(2);
+
+if (arguments < 2) {
+    printUsage();
+    process.exit(1);
+}
+
+let command = arguments[0];
+
+if (command === '--remove') {
+    rm.remove(arguments[1]);
+} else if (command === '--read') {
+    rd.read(arguments[1]);
+} else {
+    printUsage();
+}
+
+function printUsage() {
+    console.log(`Usage: node main.js (--read|--remove) [path]`);
+}
+
