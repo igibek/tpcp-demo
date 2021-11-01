@@ -1,0 +1,14 @@
+heroes:
+  marvel:
+    - iron man
+    - thor
+    - black widow
+    - black panther
+    - ant man
+    - spider man
+  dc:
+    - batman
+    - superman
+    - flash
+    - aquaman
+    - wonder woman
